@@ -36,6 +36,7 @@ function getSite() {
           titles.push({ title: title, channel: data })
         }
       }
+
       return Promise.all(
         titles.map((item) => {
           return getShows(process.env.URL1 + item.title, item.channel)

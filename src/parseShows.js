@@ -9,12 +9,13 @@ getShows = (url, channel) => {
         .then((html) => {
             const shows = [];
             console.log("\x1b[34mParsing data from channel:\x1b[0m", channel)
-            for (let i = 0; i < $('h2 > div', html).length; i++) {
+            //console.log($('li > ol > li', html));
+            for (let i = 0; i < $('ol > li > li', html).length; i++) { 
+                //let time = $('div > time', html)[i].children[0].data
+                //let title = $('h2 > div', html)[i].children[0].data
+                console.log($('ol > li > li', html)[i])
 
-                let time = $('div > time', html)[i].children[0].data
-                let title = $('h2 > div', html)[i].children[0].data
                 let parsedTitle = title;
-
                 if (title.includes("a:")) {
                     parsedTitle = title.split(":")[1].split("(")[0].trim();
                 }
